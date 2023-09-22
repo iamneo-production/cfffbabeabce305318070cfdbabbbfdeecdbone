@@ -1,6 +1,14 @@
 provider "aws"{
-    region="ap-southeast-1"
+    region="Singapore"
 }
 resource "aws_instance" "example_instance"{
-    ami="ami-0a63"
+    ami="SUSE Linux Enterprise Server 12 SP5"
+    instance_type="t2.micro"
+}
+tags={
+    Name="example-instance"
+}
+output "public_ip"{
+    value=aws_instance.example_instance.public_ip
+    
 }
